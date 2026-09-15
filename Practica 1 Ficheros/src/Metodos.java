@@ -34,6 +34,37 @@ public class Metodos {
         }
 }
 
+
+//ejercicio 5
+public boolean modoAcceso(String dirName, String fileName) {
+    File ficheiro = new File(dirName, fileName);
+
+    if (ficheiro.canWrite()) {
+        System.out.println("escritura si");
+    } else {
+        System.out.println("escritura no");
+    }
+
+    if (ficheiro.canRead()) {
+        System.out.println("lectura si");
+    } else {
+        System.out.println("lectura no");
+    }
+    return false;
+}
+
+//ejercicio 6
+public static void calculaLonxitude(String dirName, String fileName) {
+    File fichero = new File(dirName, fileName);
+
+    if (fichero.isFile()) {
+        System.out.println("Lonxitude: " + fichero.length() + " bytes");
+    } else {
+        System.out.println("O ficheiro non existe.");
+    }
+}
+
+
 void main() {
 }
 
