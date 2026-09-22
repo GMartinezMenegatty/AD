@@ -15,7 +15,7 @@ public class Parte2 {
             entrada.close();
             salida.close();
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error");
         }
     }
 
@@ -30,7 +30,7 @@ public class Parte2 {
             entrada.close();
             salida.close();
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error");
         }
     }
 
