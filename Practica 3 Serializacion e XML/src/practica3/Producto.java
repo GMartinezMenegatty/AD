@@ -12,20 +12,58 @@ public class Producto implements Serializable{
         this.num2 = num2;
     }
 
+    public Producto() {
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" + "nome='" + nombre + '\'' + ", num1=" + num1 +
+                ", num2=" + num2 + '}';
+    }
+
     public static void main(String[] args) {
-        Producto p1 = new Producto("Abc", 12, 34);
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Practica 3 Serializacion e XML/producto.ser"))) {
-            oos.writeObject(p1); // Usamos writeObject aquí
-            System.out.println("Objeto guardado correctamente: " + p1);
-        } catch (IOException e) {
-            System.out.println("Error al escribir el archivo: " + e.getMessage());
+        Producto producto1 = new Producto("Ordenador", 10, 799.99);
+
+        // Guardar el objeto en el fichero serial
+        try {
+
+            FileOutputStream archivo = new FileOutputStream("serial");
+            ObjectOutputStream salida = new ObjectOutputStream(archivo);
+
+            salida.writeObject(producto1);
+
+            salida.close();
+            archivo.close();
+
+            System.out.println("Producto guardado correctamente.");
+
+        } catch (Exception e) {
+            System.out.println("Error al guardar: " + e.getMessage());
         }
 
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Practica 3 Serializacion e XML/producto.ser"))) {
-            Producto pRecuperada = (Producto) ois.readObject();
-            System.out.println("Objeto leído del archivo: " + pRecuperada);
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Error al leer el archivo: " + e.getMessage());
+
+        // Crear un objeto vacío
+        Producto producto2 = new Producto();
+
+        // Cargar los datos desde el fichero
+        try {
+
+            FileInputStream archivo = new FileInputStream("serial");
+            ObjectInputStream entrada = new ObjectInputStream(archivo);
+
+            producto2 = (Producto) entrada.readObject();
+
+            entrada.close();
+            archivo.close();
+
+            System.out.println("Producto cargado correctamente.");
+
+            System.out.println(producto2);
+
+        } catch (Exception e) {
+
+            System.out.println("Error al cargar: " + e.getMessage());
+
         }
     }
 }
