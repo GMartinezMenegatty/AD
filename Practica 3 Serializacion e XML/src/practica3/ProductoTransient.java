@@ -1,32 +1,33 @@
 package practica3;
 import java.io.*;
 
-public class Producto implements Serializable{
+public class ProductoTransient implements Serializable {
     String nombre;
-    int num1;
+    transient int num1;
     double num2;
 
-    public Producto(String nombre, int num1, double num2) {
+    public ProductoTransient(String nombre, int num1, double num2) {
         this.nombre = nombre;
         this.num1 = num1;
         this.num2 = num2;
     }
 
-    public Producto() {
+    public ProductoTransient() {
     }
 
     @Override
     public String toString() {
-        return "Producto{" + "nome='" + nombre + '\'' + ", num1=" + num1 +
-                ", num2=" + num2 + '}';
+        return "ProductoTransient{" + "nome='" + nombre + '\'' + ", num1=" + num1 + ", num2=" + num2 + '}';
     }
-
     public static void main(String[] args) {
-        Producto producto1 = new Producto("Abc", 81, 1221);
 
-        // Guardar el objeto en el fichero serial
+        // Crear un objeto con num1 = 25
+        ProductoTransient producto1 = new ProductoTransient("Abc", 24, 1410);
+
+        // Guardar el objeto
         try {
-            FileOutputStream archivo = new FileOutputStream("serial");
+
+            FileOutputStream archivo = new FileOutputStream("serialTransient");
             ObjectOutputStream salida = new ObjectOutputStream(archivo);
 
             salida.writeObject(producto1);
@@ -42,25 +43,23 @@ public class Producto implements Serializable{
 
 
         // Crear un objeto vacío
-        Producto producto2 = new Producto();
+        ProductoTransient producto2 = new ProductoTransient();
 
-        // Cargar los datos desde el fichero
+        // Leer el objeto
         try {
-            FileInputStream archivo = new FileInputStream("serial");
+            FileInputStream archivo = new FileInputStream("serialTransient");
             ObjectInputStream entrada = new ObjectInputStream(archivo);
 
-            producto2 = (Producto) entrada.readObject();
+            producto2 = (ProductoTransient) entrada.readObject();
 
             entrada.close();
             archivo.close();
 
             System.out.println("Producto cargado correctamente.");
-
             System.out.println(producto2);
 
         } catch (Exception e) {
             System.out.println("Error al cargar: " + e.getMessage());
-
         }
     }
 }
