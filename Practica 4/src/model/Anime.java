@@ -1,6 +1,10 @@
 package model;
 import java.sql.Date;
 
+/**
+ * Clase que representa un anime con sus atributos: nombre, descripción, fecha y puntuación.
+ */
+
 public class Anime {
 
     private String nome;

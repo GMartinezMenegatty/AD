@@ -1,6 +1,10 @@
 package Connector;
 import java.sql.*;
 
+/**
+ * Clase que establece la conexión con la base de datos PostgreSQL.
+ */
+
 public class DBConnector {
 
     public static Connection DBConnector() {
@@ -9,7 +13,7 @@ public class DBConnector {
 
         try {
 
-            String url = "jdbc:postgresql://10.0.9.29:5432/probas";
+            String url = "jdbc:postgresql://10.0.9.226:5432/probas";
             String usuario = "postgres";
             String password = "admin";
 

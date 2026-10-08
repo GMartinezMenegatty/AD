@@ -4,10 +4,19 @@ import model.Anime;
 
 import java.sql.*;
 
+/**
+ * Programa que realiza operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en una base de datos PostgreSQL para la entidad Anime.
+ * Utiliza la clase DBConnector para establecer la conexión con la base de datos y la clase Anime para representar los objetos de anime.
+ */
+
 public class AnimeService {
 
-    // INSERTAR
-    public void insertar(Anime anime) {
+    /**
+     * Método que inserta un nuevo anime en la base de datos.
+     * @param anime
+     */
+
+    public void crear(Anime anime) {
 
         String sql = "INSERT INTO anime (nome, descripcion, data, puntuacion) " +
                 "VALUES (?, ?, ?, ?)";
@@ -31,8 +40,11 @@ public class AnimeService {
     }
 
 
-    // LEER TODOS
-    public void listarTodos() {
+    /**
+     * Método que lee todos los animes de la base de datos y los imprime en consola.
+     */
+
+    public void leer() {
 
         String sql = "SELECT * FROM anime";
 
@@ -56,9 +68,12 @@ public class AnimeService {
         }
     }
 
+    /**
+     * Método que busca un anime por su nombre.
+     * @param nome
+     */
 
-    // BUSCAR POR NOMBRE
-    public void buscarPorNome(String nome) {
+    public void buscarPorNombre(String nome) {
 
         String sql = "SELECT * FROM anime WHERE nome = ?";
 
@@ -82,9 +97,13 @@ public class AnimeService {
         }
     }
 
+    /**
+     * Método que actualiza un anime existente en la base de datos.
+     * @param nomeAnterior
+     * @param animeNuevo
+     */
 
-    // ACTUALIZAR
-    public void actualizar(String nomeAnterior, Anime animeNuevo) {
+    public void update(String nomeAnterior, Anime animeNuevo) {
 
         String sql = "UPDATE anime SET nome = ?, descripcion = ?, " + "data = ?, puntuacion = ? WHERE nome = ?";
 
@@ -107,9 +126,12 @@ public class AnimeService {
         }
     }
 
+    /**
+     * Método que elimina un anime por su nombre.
+     * @param nome
+     */
 
-    // ELIMINAR
-    public void eliminar(String nome) {
+    public void delete(String nome) {
 
         String sql = "DELETE FROM anime WHERE nome = ?";
 
