@@ -3,38 +3,60 @@ package model;
 import java.io.Serial;
 
 public class Videoxogo {
-    private static Serial Id;
-    private static String Titulo;
-    private static String Plataforma;
-    private static int AnoLanzamento;
-    private static String Descripcion;
+    private static final long serialVersionUID = 1L;
+    private int Id;
+    private String Titulo;
+    private String Plataforma;
+    private int AnoLanzamento;
+    private String Descripcion;
 
-    public Videoxogo(Serial Id, String Titulo, String Plataforma, int AnoLanzamento, String Descripcion) {
-        Videoxogo.Id = Id;
-        Videoxogo.Titulo = Titulo;
-        Videoxogo.Plataforma = Plataforma;
-        Videoxogo.AnoLanzamento = AnoLanzamento;
-        Videoxogo.Descripcion = Descripcion;
+    public Videoxogo(int Id, String Titulo, String Plataforma, int AnoLanzamento, String Descripcion) {
+        this.Id = Id;
+        this.Titulo = Titulo;
+        this.Plataforma = Plataforma;
+        this.AnoLanzamento = AnoLanzamento;
+        this.Descripcion = Descripcion;
     }
 
-    public void setId(Serial id) { Id = id; }
-    public static Serial getId() { return Id; }
-
-    public void setTitulo(String titulo) { Titulo = titulo; }
-    public static String getTitulo() { return Titulo; }
-
-    public void setPlataforma(String plataforma) { Plataforma = plataforma; }
-    public static String getPlataforma() { return Plataforma; }
-
-    public void setAnoLanzamento(int anoLanzamento) { AnoLanzamento = anoLanzamento; }
-    public static int getAnoLanzamento() { return AnoLanzamento; }
-
-    public void setDescripcion(String descripcion) { Descripcion = descripcion; }
-    public static String getDescripcion() { return Descripcion; }
-
-    public String toString() {
-        return Titulo + "(" + Plataforma + ", " + AnoLanzamento + ")" + Descripcion;
+    public void setId(int id) {
+        Id = id;
     }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setTitulo(String titulo) {
+        Titulo = titulo;
+    }
+
+    public String getTitulo() {
+        return Titulo;
+    }
+
+    public void setPlataforma(String plataforma) {
+        Plataforma = plataforma;
+    }
+
+    public String getPlataforma() {
+        return Plataforma;
+    }
+
+    public void setAnoLanzamento(int anoLanzamento) {
+        AnoLanzamento = anoLanzamento; }
+
+    public int getAnoLanzamento() {
+        return AnoLanzamento;
+    }
+
+    public void setDescripcion(String descripcion) {
+        Descripcion = descripcion;
+    }
+
+    public String getDescripcion() {
+        return Descripcion;
+    }
+
 }
 
 
