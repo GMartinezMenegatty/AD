@@ -48,36 +48,7 @@ public class FileService implements Serializable {
 
     public void exportarXML() {
         try {
-            XMLOutputFactory XOF = XMLOutputFactory.newInstance();
-            XMLStreamWriter XSW = XOF.createXMLStreamWriter(new FileWriter("Videoxogo.xml"));
 
-            XSW.writeStartDocument();
-            XSW.writeStartElement("Videoxogo");
-
-            XSW.writeStartElement("Id");
-            XSW.writeCharacters(String.valueOf(Videoxogo.getId()));
-            XSW.writeEndElement();
-
-            XSW.writeStartElement("Titulo");
-            XSW.writeCharacters(Videoxogo.getTitulo());
-            XSW.writeEndElement();
-
-            XSW.writeStartElement("Plataforma");
-            XSW.writeCharacters(Videoxogo.getPlataforma());
-            XSW.writeEndElement();
-
-            XSW.writeStartElement("AnoLanzamento");
-            XSW.writeCharacters(String.valueOf(Videoxogo.getAnoLanzamento()));
-            XSW.writeEndElement();
-
-            XSW.writeStartElement("Descripcion");
-            XSW.writeCharacters(Videoxogo.getDescripcion());
-            XSW.writeEndElement();
-
-            XSW.writeEndElement(); // Cierra el elemento Videoxogo
-            XSW.writeEndDocument();
-
-            XSW.close();
         } catch (Exception e) {
             System.out.println("Error al exportar a XML: " + e.getMessage());
         }
