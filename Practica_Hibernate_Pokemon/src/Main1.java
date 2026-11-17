@@ -1,7 +1,10 @@
 
 import config.HibernateConfig;
 import model.*;
-import services.*;
+import services.AdestradorService;
+import services.FileService;
+import services.PokedexService;
+import services.PokemonService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

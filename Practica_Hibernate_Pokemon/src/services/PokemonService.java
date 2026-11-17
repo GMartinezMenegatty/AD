@@ -2,8 +2,6 @@
 package services;
 
 import config.HibernateConfig;
-import model.Adestrador;
-import model.Pokedex;
 import model.Pokemon;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

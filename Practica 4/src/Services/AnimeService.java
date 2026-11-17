@@ -105,7 +105,8 @@ public class AnimeService {
 
     public void update(String nomeAnterior, Anime animeNuevo) {
 
-        String sql = "UPDATE anime SET nome = ?, descripcion = ?, " + "data = ?, puntuacion = ? WHERE nome = ?";
+        String sql = "UPDATE anime SET nome = ?, descripcion = ?, " +
+                "data = ?, puntuacion = ? WHERE nome = ?";
 
         try (Connection conn = DBConnector.DBConnector();
              PreparedStatement ps = conn.prepareStatement(sql)) {

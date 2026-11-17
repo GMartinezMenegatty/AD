@@ -30,10 +30,10 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>src</sourceDirectory>
+        <sourceDirectory>../../Practica_hibernate_Pokemon/src</sourceDirectory>
         <resources>
             <resource>
-                <directory>src/resources</directory>
+                <directory>resources</directory>
             </resource>
         </resources>
         <plugins>
